@@ -53,7 +53,7 @@ function applyDiff(actualDOM: HTMLElement | Text, patch: Patch, parentDOM: HTMLE
         }
     }
 
-    if (contains(patch.types, OPERATOR_TYPE.TEXT_CHANGE)) {
+    if (contains(patch.types, OPERATOR_TYPE.PROPS_CHANGE)) {
         each(patch.modifyProps, function (modifyProp) {
             if (!isHTMLElement(actualDOM)) {
                 // 理论上Patch不应该出现这个情况

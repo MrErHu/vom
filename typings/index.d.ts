@@ -1,4 +1,5 @@
 import VNode from '../src/VNode';
+import { PROP_TYPE } from '../src/enums';
 
 export declare type KeyType = string | number | null;
 
@@ -10,7 +11,7 @@ export declare interface PropsType {
 }
 
 export declare interface ModifyProps {
-    type: number;
+    type: PROP_TYPE;
     key?: string;
     value?: any;
 }

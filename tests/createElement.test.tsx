@@ -30,18 +30,19 @@ describe('createElement', () => {
     test('多个子元素-数组形式', () => {
         const dom = (
             <ul>
-                {[
-                    <li key={1}></li>,
-                    <li key={2}></li>
-                ]}
+                {
+                    Array.from({ length: 2 }).map((val, index) => {
+                        return <li key={index}></li>;
+                    })
+                }
             </ul>
         );
         const ul = new VNode('ul');
-        const li1 = new VNode('li');
-        li1.key = 1;
-        let li2 = new VNode('li');
-        li2.key = 2;
-        ul.children = [li1, li2];
+        ul.children = Array.from({ length: 2 }).map((val, index) => {
+            const li = new VNode('li');
+            li.key = index;
+            return li;
+        });
         expect(dom).toEqual(ul);
     });
 });
